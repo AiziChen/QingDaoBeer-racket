@@ -114,7 +114,7 @@
                #:listen-ip #f
                #:servlet-path "/"
                #:extra-files-paths
-               (list (build-path "statics")))
+               (list (build-path "static")))
 
 (define (validate-code number code)
   (let* ([content
