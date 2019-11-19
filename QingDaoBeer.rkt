@@ -109,7 +109,8 @@
 
 ;;;;;;;;;;;;;;;;;;; Deploy Servlets ;;;;;;;;;;;;;;;;;;;;
 (serve/servlet main
-               #:port 8089
+               #:launch-browser? #f
+               #:port 8099
                #:listen-ip #f
                #:servlet-path "/"
                #:extra-files-paths
