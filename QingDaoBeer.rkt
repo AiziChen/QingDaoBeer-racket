@@ -18,16 +18,15 @@
             "CREATE TABLE IF NOT EXISTS Phone (id integer PRIMARY KEY AUTOINCREMENT, phone VARCHAR(11) UNIQUE)")
 
 ;; 获取图片验证码
-(define get-code
-  (lambda ()
-    (let* ([value (call/input-url (string->url "http://149.129.61.211:8089/getCode")
-                    get-pure-port
-                    (lambda (port)
-                      (with-input-from-string
-                        (port->string port)
-                        (lambda () (read-json)))))]
-           [code (hash-ref value 'msg)])
-      (substring code 0 (- (string-length code) 2)))))
+(define (get-code)
+  (let* ([value (call/input-url (string->url "http://149.129.61.211:8089/getCode")
+                                get-pure-port
+                                (lambda (port)
+                                  (with-input-from-string
+                                    (port->string port)
+                                    (lambda () (read-json)))))]
+         [code (hash-ref value 'msg)])
+    (substring code 0 (- (string-length code) 2))))
 
 
 ;;;;;;;;;;;;;;;;;; Servlets ;;;;;;;;;;;;;;;;
